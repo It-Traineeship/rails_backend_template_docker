@@ -10,13 +10,12 @@ RUN apk update && apk upgrade && apk add --no-cache \
     gcompat \
     && rm -rf /var/cache/apk/*
 
-RUN mkdir /rails-backend
-WORKDIR /rails-backend
+RUN mkdir /app
+WORKDIR /app
 
-COPY Gemfile Gemfile.lock ./
+
+COPY . .
 
 RUN gem update --system \
     && gem install bundler \
     && bundle install
-
-COPY . .
