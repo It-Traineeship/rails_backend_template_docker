@@ -13,7 +13,6 @@ RUN apk update && apk upgrade && apk add --no-cache \
 RUN mkdir /app
 WORKDIR /app
 
-
 COPY . .
 
 RUN gem update --system \
